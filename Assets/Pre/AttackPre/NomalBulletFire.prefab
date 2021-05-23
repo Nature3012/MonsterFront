@@ -9519,7 +9519,6 @@ GameObject:
   - component: {fileID: 4832750714773668}
   - component: {fileID: 198446971744627332}
   - component: {fileID: 199524112731312442}
-  - component: {fileID: 8971267742766353467}
   m_Layer: 0
   m_Name: NomalBulletFire
   m_TagString: Untagged
@@ -9536,7 +9535,7 @@ Transform:
   m_GameObject: {fileID: 1537593200154216}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4076352438612880}
   - {fileID: 4912271624496758}
@@ -14265,15 +14264,3 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &8971267742766353467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1537593200154216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6c94f6769dc6974ea49414e530ae2aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

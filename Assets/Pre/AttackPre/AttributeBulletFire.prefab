@@ -14273,7 +14273,6 @@ GameObject:
   - component: {fileID: 4335282639064450}
   - component: {fileID: 198993423900235080}
   - component: {fileID: 199087449348766326}
-  - component: {fileID: 6714828018447704440}
   m_Layer: 0
   m_Name: AttributeBulletFire
   m_TagString: Untagged
@@ -14290,7 +14289,7 @@ Transform:
   m_GameObject: {fileID: 1975959190090480}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -2}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4994149801054408}
   - {fileID: 4999175273111558}
@@ -19020,15 +19019,3 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &6714828018447704440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1975959190090480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6c94f6769dc6974ea49414e530ae2aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
