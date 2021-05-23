@@ -34,6 +34,7 @@ public class Enemy1 : MonoBehaviour, IEnemyPattern
     [SerializeField] private float frez;
     [SerializeField] GameObject attacksp;
     [SerializeField] GameObject A1;
+    [SerializeField] Animation clearAnimation;
     private float currentSeconds;
     bool a1s = false;
     Transform m_tra;
@@ -95,6 +96,11 @@ public class Enemy1 : MonoBehaviour, IEnemyPattern
             case EnemyStatus.Die:
                 enemyAnimator.Play("Die");
                 Die("Die");
+                if (clearAnimation)
+                {
+                    clearAnimation.Play();
+                }
+
                 break;
             case EnemyStatus.DieAfter:
                 time2 += Time.deltaTime;
