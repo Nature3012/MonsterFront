@@ -125,4 +125,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   explosion: {fileID: 1975959190090480, guid: d56cde6d6c5aa74458da56e42d488438, type: 3}
-  pw: 50
+  pw: 100

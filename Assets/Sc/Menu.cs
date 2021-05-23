@@ -28,9 +28,11 @@ public class Menu : MonoBehaviour
     {
         mainTransform.anchoredPosition = new Vector2(405, 0);
         toMenuTransform.anchoredPosition = new Vector2(-405, 0);
+        setumeigamennTransform.anchoredPosition = new Vector2(5000, 0);
         if (setumeigamenn)
         {
-            setumeigamennTransform.anchoredPosition = new Vector2(5000, 0);
+            Debug.Log("ma");
+            
         }
     }
 

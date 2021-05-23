@@ -9,32 +9,15 @@ public class MouseOver : MonoBehaviour
     EventTrigger eventTrigger = null;
     [SerializeField] Sprite image = null;
     [SerializeField] GameObject gameObjects = null;
-    RectTransform rectTransform;
+    [SerializeField] RectTransform rectTransform;
 
     void Start()
     {
         eventTrigger = GetComponent<EventTrigger>();
-        rectTransform = gameObjects.GetComponent<RectTransform>();
-
-        //var entry = new EventTrigger.Entry();
-        //entry.eventID = EventTriggerType.PointerEnter;
-
-        //// リスナーは単純にLogを出力するだけの処理にする
-        //entry.callback.AddListener((data) => { Sprite a = GetComponent<Image>().sprite; 
-        //    GetComponent<Image>().sprite = image;
-        //    image = a;
-        //    Debug.Log("in");
-        //});
-
-        //var entry2 = new EventTrigger.Entry();
-        //entry2.eventID = EventTriggerType.PointerExit;
-        //entry2.callback.AddListener((date) => {
-        //    Sprite a = GetComponent<Image>().sprite;
-        //    GetComponent<Image>().sprite = image;
-        //    image = a;
-        //    Debug.Log("ex");
-        //});
-
+        if (gameObjects != null)
+        {
+            rectTransform = gameObjects.GetComponent<RectTransform>();
+        }
     }
 
     public void In()
