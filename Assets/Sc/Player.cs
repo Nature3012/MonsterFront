@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     bool attackNow = false;
     bool m_at = false;
     [SerializeField] Image HPBR;
+    [SerializeField] Animation defeatAnimation;
     
     void Start()
     {
@@ -239,6 +240,7 @@ public class Player : MonoBehaviour
             
             if (HP <= 0)
             {
+                defeatAnimation.Play();
                 p_animator.Play("Die");
                 enemy.GetComponent<Enemy1>().Win();
                 ens = EnumState.Die;
