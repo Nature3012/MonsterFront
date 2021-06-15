@@ -5,15 +5,15 @@ using UnityEngine.AI;
 
 public class BaceEnemy : MonoBehaviour
 {
-    private string enemyName;//敵の名前
-    private float enemyHp;//敵のHP
-    private float enemySpeed;//敵の移動速度
-    private float enemyAttackPow;//敵の攻撃力
-    private float enemyFreeze;//敵の硬直時間
-    private Rigidbody enemyRigidBody;//敵のRigidBody
-    private Transform enemyTransform;//敵のTransform
-    private Transform targetTransform;//プレイヤーのTransform
-    private Animator enemyAnimator;//敵のアニメーター
+    public string enemyName { private set; get; }//敵の名前
+    public float enemyHp { private set; get; }//敵のHP
+    public float enemySpeed { private set; get; }//敵の移動速度
+    public float enemyAttackPow { private set; get; }//敵の攻撃力
+    public float enemyFreeze { private set; get; }//敵の硬直時間
+    public Rigidbody enemyRigidBody { private set; get; }//敵のRigidBody
+    public Transform enemyTransform { private set; get; }//敵のTransform
+    public Transform targetTransform { private set; get; }//プレイヤーのTransform
+    public Animator enemyAnimator { private set; get; }//敵のアニメーター
 
     public virtual void SetEnemyName(string s) {enemyName = s;}
     public virtual string GetEnemyName() {return enemyName;}
@@ -41,9 +41,18 @@ public class BaceEnemy : MonoBehaviour
         FREEZE
     }
 
-    private void Start()
+    public virtual void SetEnemy(string name, float hp, float speed, 
+        float power, float freeze, Animator animator, Rigidbody rigidbody, Transform enemyTrans, Transform targetTrans)
     {
-        
+        enemyName = name;
+        enemyHp = hp;
+        enemySpeed = speed;
+        enemyAttackPow = power;
+        enemyFreeze = freeze;
+        enemyRigidBody = rigidbody;
+        enemyTransform = enemyTransform;
+        targetTransform = targetTrans;
+        enemyAnimator = animator;
     }
 
     private void Update()
