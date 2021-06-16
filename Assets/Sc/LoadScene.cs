@@ -11,14 +11,13 @@ public class LoadScene : MonoBehaviour
     [SerializeField] private float feadSpeed = 0.2f;
     private float red, green, blue, alfa;
     bool isFead = false;
-    // Start is called before the first frame update
+    
     void Start()
     {
         alfa = feadImage.color.a;
         feadImage.enabled = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isFead)
