@@ -15,7 +15,6 @@ public class Gun : MonoBehaviour
     {
         maincamera = Camera.main;   }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButton("Fire1"))

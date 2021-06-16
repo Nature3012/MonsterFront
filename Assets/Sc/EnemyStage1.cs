@@ -16,8 +16,10 @@ public class EnemyStage1 : BaceEnemy
     private void Awake()
     {
         base.SetEnemy(enemyThisName,enemyThisHp,speed,power,freeze,GetComponent<Animator>(), GetComponent<Rigidbody>(), this.gameObject.transform, 
-            GameObject.FindGameObjectWithTag("Player").transform,GetComponent<NavMeshAgent>());
+            GetComponent<NavMeshAgent>());
     }
+
+
 
     public override void Attack1()
     {

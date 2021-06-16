@@ -48,7 +48,7 @@ public class BaceEnemy : MonoBehaviour
     ENEMYSTATE enemyState = ENEMYSTATE.IDOL;
 
     public void SetEnemy(string name, float hp, float speed, 
-        float power, float freeze, Animator animator, Rigidbody rigidbody, Transform enemyTrans, Transform targetTrans,NavMeshAgent navMesh)
+        float power, float freeze, Animator animator, Rigidbody rigidbody, Transform enemyTrans ,NavMeshAgent navMesh)
     {
         enemyName = name;
         enemyHp = hp;
@@ -57,10 +57,14 @@ public class BaceEnemy : MonoBehaviour
         enemyFreeze = freeze;
         enemyRigidBody = rigidbody;
         enemyTransform = enemyTransform;
-        targetTransform = targetTrans;
         enemyAnimator = animator;
         navMeshAgent = navMesh;
         isSet = true;
+    }
+
+    private void Start()
+    {
+        targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Update()
