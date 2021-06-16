@@ -10,7 +10,6 @@ public class Billding : MonoBehaviour
         Collider collider = GetComponent<Collider>();
         collider.enabled = false;
 
-        //ParticleSystem particleSystem = GetComponent<ParticleSystem>();
         Instantiate(particleSystems, this.gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
@@ -20,17 +19,15 @@ public class Billding : MonoBehaviour
         Collider collider = GetComponent<Collider>();
         collider.enabled = false;
 
-        //ParticleSystem particleSystem = GetComponent<ParticleSystem>();
         Instantiate(particleSystems, this.gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
-    public void X() 
+    public void BrekeBillding() 
     {
         Collider collider = GetComponent<Collider>();
         collider.enabled = false;
 
-        //ParticleSystem particleSystem = GetComponent<ParticleSystem>();
         Instantiate(particleSystems, this.gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

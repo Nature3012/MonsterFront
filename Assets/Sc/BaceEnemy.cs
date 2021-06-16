@@ -19,24 +19,6 @@ public class BaceEnemy : MonoBehaviour
     private float currentSeconds = 0;//Freeze時開始からの秒数
     private float attackE;
 
-    public virtual void SetEnemyName(string s) {enemyName = s;}
-    public virtual string GetEnemyName() {return enemyName;}
-
-    public virtual void SetEnemyHp(float o) { enemyHp = o; }
-    public virtual float GetEnemyHp() { return enemyHp; }
-
-    public virtual void SetEnemySpeed(float o) { enemySpeed = o; }
-    public virtual float GetEnemySpeed() { return enemySpeed; }
-
-    public virtual void SetEnemyAttack(float o) { enemyAttackPow = o; }
-    public virtual float GetEnemyAttack() { return enemyAttackPow; }
-
-    public virtual void SetEnemyFreeze(float o) { enemyFreeze = o; }
-    public virtual float GetEnemyFreeze() { return enemyFreeze; }
-
-    public virtual void SetEnemyAnime(Animator a) { enemyAnimator = a; }
-    public virtual Animator GetEnemyAnime() { return enemyAnimator; }
-
     enum ENEMYSTATE 
     {
         IDOL,
@@ -48,7 +30,8 @@ public class BaceEnemy : MonoBehaviour
     ENEMYSTATE enemyState = ENEMYSTATE.IDOL;
 
     public void SetEnemy(string name, float hp, float speed, 
-        float power, float freeze, Animator animator, Rigidbody rigidbody, Transform enemyTrans ,NavMeshAgent navMesh)
+        float power, float freeze, Animator animator, Rigidbody rigidbody,
+        Transform enemyTrans ,NavMeshAgent navMesh)
     {
         enemyName = name;
         enemyHp = hp;
