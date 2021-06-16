@@ -19,8 +19,6 @@ public class EnemyStage1 : BaceEnemy
             GetComponent<NavMeshAgent>());
     }
 
-
-
     public override void Attack1()
     {
         enemyAnimator.Play("Attack1");
