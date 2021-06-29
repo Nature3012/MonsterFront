@@ -60,7 +60,6 @@ public class Player : MonoBehaviour
             bulletins = bullet1;
             buco = 1;
         }
-        Debug.Log(buco);
     }
 
     void Update()
@@ -79,7 +78,7 @@ public class Player : MonoBehaviour
                                 transform.LookAt(enemy.transform);
                                 p_animator.Play("Attack1");
                                 ens = EnumState.AliveAttack;
-                                audioSource.PlayOneShot(gunAudio);
+                                //audioSource.PlayOneShot(gunAudio);
                                 break;
                             }
                         }

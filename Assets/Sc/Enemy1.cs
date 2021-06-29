@@ -63,7 +63,8 @@ public class Enemy1 : MonoBehaviour, IEnemyPattern
                 Vector3 playerPos = target.position;
                 playerPos.y = this.transform.position.y;
                 this.transform.LookAt(playerPos);
-                enemystatus = EnemyStatus.Attack;
+                enemystatus = EnemyStatus.Attack; atp = enemyBace.RandomAttack();
+                ap = enemyBace.AttackNum(atp);
                 break;
             case EnemyStatus.Attack:
                 target = targetj.transform;

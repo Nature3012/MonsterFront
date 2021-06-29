@@ -17,6 +17,8 @@ public class BaceEnemy : MonoBehaviour
     public NavMeshAgent navMeshAgent { private set; get; }//
     private bool isSet = false; //Setしたかどうか 
     private float currentSeconds = 0;//Freeze時開始からの秒数
+    private bool isAttack = false;//攻撃が選択されてる状態
+    int attackCase = 0;//次の攻撃
     private float attackE;
 
     enum ENEMYSTATE 
@@ -39,15 +41,17 @@ public class BaceEnemy : MonoBehaviour
         enemyAttackPow = power;
         enemyFreeze = freeze;
         enemyRigidBody = rigidbody;
-        enemyTransform = enemyTransform;
+        enemyTransform = enemyTrans;
         enemyAnimator = animator;
         navMeshAgent = navMesh;
-        isSet = true;
     }
 
     private void Start()
     {
         targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
+
+        isSet = true;
+        Debug.Log("isSet:true");
     }
 
     private void Update()
@@ -66,29 +70,40 @@ public class BaceEnemy : MonoBehaviour
                     enemyState = ENEMYSTATE.ATTACK;
                     break;
                 case ENEMYSTATE.ATTACK:
-                    float aida = (enemyTransform.position - targetTransform.position).sqrMagnitude;
-                    float attckdis = (targetTransform.gameObject.GetComponent<CapsuleCollider>().radius + this.GetComponent<CapsuleCollider>().radius + attackE) + 
-                        (targetTransform.gameObject.GetComponent<CapsuleCollider>().radius + this.GetComponent<CapsuleCollider>().radius + attackE);
-                    int attackCase = RandomAttack();
-                    switch (attackCase)
+                    if (!isAttack)
                     {
-                        case 0:
-                            Attack1();
-                            break;
-                        case 1:
-                            Attack2(aida,attckdis);
-                            break;
-                        case 2:
-                            Attack3(aida,attckdis);
-                            break;
-                        case 3:
-                            Attack4(aida,attckdis);
-                            break;
-                        case 4:
-                            Attack5(aida,attckdis);
-                            break;
-                        default:
-                            break;
+                        attackCase = RandomAttack();
+                        Debug.Log("attackCase:" + attackCase);
+                        isAttack = true;
+
+                    }
+                    
+                    float aida = (enemyTransform.position - targetTransform.position).sqrMagnitude;
+                    float attckdis = (targetTransform.gameObject.GetComponent<CapsuleCollider>().radius + this.GetComponent<CapsuleCollider>().radius + attackE) +
+                        (targetTransform.gameObject.GetComponent<CapsuleCollider>().radius + this.GetComponent<CapsuleCollider>().radius + attackE);
+                    
+                    if (isAttack)
+                    {
+                        switch (attackCase)
+                        {
+                            case 0:
+                                Attack1();
+                                break;
+                            case 1:
+                                Attack2(aida, attckdis);
+                                break;
+                            case 2:
+                                Attack3(aida, attckdis);
+                                break;
+                            case 3:
+                                Attack4(aida, attckdis);
+                                break;
+                            case 4:
+                                Attack5(aida, attckdis);
+                                break;
+                            default:
+                                break;
+                        }
                     }
                     break;
                 case ENEMYSTATE.FREEZE:
@@ -117,21 +132,25 @@ public class BaceEnemy : MonoBehaviour
     public virtual void Attack2(float aida,float attackdis) 
     {
         enemyState = ENEMYSTATE.FREEZE;
+        isAttack = false;
     }
 
     public virtual void Attack3(float aida, float attackdis) 
     {
         enemyState = ENEMYSTATE.FREEZE;
+        isAttack = false;
     }
 
     public virtual void Attack4(float aida, float attackdis) 
     {
         enemyState = ENEMYSTATE.FREEZE;
+        isAttack = false;
     }
 
     public virtual void Attack5(float aida, float attackdis) 
     {
         enemyState = ENEMYSTATE.FREEZE;
+        isAttack = false;
     }
 
     private void Freeze() 
@@ -178,5 +197,11 @@ public class BaceEnemy : MonoBehaviour
         {
             enemyState = ENEMYSTATE.FREEZE;
         }
+    }
+
+    public void Attack1End() 
+    {
+        enemyState = ENEMYSTATE.FREEZE;
+        isAttack = false;
     }
 }

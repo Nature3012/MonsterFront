@@ -10,12 +10,13 @@ public class EnemyStage1 : BaceEnemy
     [SerializeField] private float speed;
     [SerializeField] private float power;
     [SerializeField] private float freeze;
+    [SerializeField] private Animator animator;
     [SerializeField] private GameObject attack1;
     [SerializeField] private Transform attackSporn;
 
     private void Awake()
     {
-        base.SetEnemy(enemyThisName,enemyThisHp,speed,power,freeze,GetComponent<Animator>(), GetComponent<Rigidbody>(), this.gameObject.transform, 
+        base.SetEnemy(enemyThisName,enemyThisHp,speed,power,freeze,animator, GetComponent<Rigidbody>(), this.gameObject.transform, 
             GetComponent<NavMeshAgent>());
     }
 
@@ -31,17 +32,19 @@ public class EnemyStage1 : BaceEnemy
     {
         if (attackdis >= aida / 400)
         {
+            Debug.Log("Attack");
             navMeshAgent.velocity = Vector3.zero;
             enemyAnimator.Play("Attack2");
             AnimatorEnd("Attack2");
             enemyAnimator.SetFloat("Speed", 0);
+            base.Attack2(aida, attackdis);
         }
         else
         {
+            Debug.Log("go");
             navMeshAgent.SetDestination(targetTransform.position);
             enemyAnimator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
         }
-        base.Attack2(aida, attackdis);
     }
 
     public override void Attack3(float aida, float attackdis)
@@ -52,13 +55,13 @@ public class EnemyStage1 : BaceEnemy
             enemyAnimator.Play("Attack3");
             AnimatorEnd("Attack3");
             enemyAnimator.SetFloat("Speed", 0);
+            base.Attack3(aida, attackdis);
         }
         else
         {
             navMeshAgent.SetDestination(targetTransform.position);
             enemyAnimator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
         }
-        base.Attack3(aida, attackdis);
     }
 
     public override void Attack4(float aida, float attackdis)
@@ -69,6 +72,7 @@ public class EnemyStage1 : BaceEnemy
             enemyAnimator.Play("Attack4");
             AnimatorEnd("Attack4");
             enemyAnimator.SetFloat("Speed", 0);
+            base.Attack4(aida, attackdis);
         }
         else
         {
@@ -76,12 +80,11 @@ public class EnemyStage1 : BaceEnemy
             enemyAnimator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
 
         }
-        base.Attack4(aida, attackdis);
     }
 
     public override void Attack5(float aida, float attackdis)
     {
-        if (attackdis >= aida / 400)
+        /*if (attackdis >= aida / 400)
         {
             navMeshAgent.velocity = Vector3.zero;
             enemyAnimator.Play("Attack5");
@@ -93,7 +96,7 @@ public class EnemyStage1 : BaceEnemy
             navMeshAgent.SetDestination(targetTransform.position);
             enemyAnimator.SetFloat("Speed", navMeshAgent.velocity.magnitude);
 
-        }
+        }*/
         base.Attack5(aida, attackdis);
     }
 }
